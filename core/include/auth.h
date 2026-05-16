@@ -11,7 +11,7 @@ struct UserRecord {
 
 class AuthManager {
 public:
-    bool register_user(const std::string& login, const std::string& password);
+    UserRecord register_user(const std::string& login, const std::string& password);
     bool verify_user(const std::string& login, const std::string& password,
                      const std::string& hash, const std::string& salt);
 };
