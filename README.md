@@ -39,3 +39,17 @@ cmake --build .
 ```
 
 This produces Python extension modules such as `auth_module` and `crypto_module` in the build tree.
+
+### Running Python binding tests
+
+From the repo root after building the project:
+
+```bash
+python3 tests/test_bindings.py
+```
+
+If Python cannot find the generated extension modules, run with `PYTHONPATH` pointed at the build directory:
+
+```bash
+PYTHONPATH=build python3 tests/test_bindings.py
+```

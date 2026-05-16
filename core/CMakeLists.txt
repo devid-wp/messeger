@@ -7,14 +7,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -Wextra")
 
-include(FetchContent)
-FetchContent_Declare(
-  pybind11
-  GIT_REPOSITORY https://github.com/pybind/pybind11.git
-  GIT_TAG v2.11.0
-)
-FetchContent_MakeAvailable(pybind11)
-
 find_package(OpenSSL REQUIRED)
 
 add_library(secure_core SHARED
