@@ -20,3 +20,13 @@ UserRecord AuthManager::register_user(const std::string& login, const std::strin
     UserRecord record{login, hash, salt};
     return record;
 }
+
+bool AuthManager::verify_user(const std::string& login, const std::string& password,
+                               const std::string& stored_hash, const std::string& stored_salt) {
+    CryptoEngine crypto;
+    std::string computed_hash = crypto.hash_password(password, stored_salt);
+
+    MemoryGuard guard_computed_hash(&computed_hash[0], computed_hash.size());
+
+    return crypto.secure_compare(computed_hash, stored_hash);
+}
