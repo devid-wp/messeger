@@ -27,5 +27,5 @@ target_include_directories(secure_core
 )
 
 target_link_libraries(secure_core
-  PRIVATE OpenSSL::SSL OpenSSL::Crypto pybind11::module
+  PRIVATE OpenSSL::SSL OpenSSL::Crypto
 )
